@@ -10,6 +10,19 @@
 </table>
 
 <br><br>
+
+<h2>Active Rentals:</h2>
+<ul>
+  <% @cat.cat_rental_requests.order(:start_date).each do |req| %>
+    <li>
+      Start Date: <%= req.start_date %> ===>
+      End Date: <%= req.end_date %>
+    </li>
+  <% end %>
+</ul>
+
+<br><br>
+
 <%= link_to "Cat Index", cats_url %>
 <br>
 <%= link_to "Edit Cat", edit_cat_url(@cat) %>

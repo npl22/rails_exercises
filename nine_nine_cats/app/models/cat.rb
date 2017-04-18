@@ -17,6 +17,10 @@ class Cat < ApplicationRecord
   validates :birth_date, :color, :name, :sex, :description, presence: true
   validates :color, inclusion: ['Black', 'Orange', 'Grey', 'Multicolor']
 
+  has_many :cat_rental_requests,
+    class_name: :CatRentalRequest,
+    dependent: :destroy
+
   def age
     Time.now.year - birth_date.year
   end
