@@ -1,22 +1,15 @@
 <h1>Cat: <%= @cat.name %></h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Birth Date</th>
-      <th>Sex</th>
-      <th>Color</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= @cat.name %></td>
-      <td><%= @cat.birth_date  %></td>
-      <td><%= @cat.sex %></td>
-      <td><%= @cat.color %></td>
-      <td><%= @cat.description %></td>
-    </tr>
-  </tbody>
+  <tr><td>Name: </td><td><%= @cat.name %></td></tr>
+  <tr><td>Birth Date: </td><td><%= @cat.birth_date %></td></tr>
+  <tr><td>Age: </td><td><%= @cat.age %></td></tr>
+  <tr><td>Sex: </td><td><%= @cat.sex %></td></tr>
+  <tr><td>Color: </td><td><%= @cat.color %></td></tr>
+  <tr><td>Description: </td><td><%= @cat.description %></td></tr>
 </table>
+
+<br><br>
+<%= link_to "Cat Index", cats_url %>
+<br>
+<%= link_to "Edit Cat", edit_cat_url(@cat) %>

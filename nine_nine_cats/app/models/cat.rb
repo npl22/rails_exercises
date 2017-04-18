@@ -17,4 +17,8 @@ class Cat < ApplicationRecord
   validates :birth_date, :color, :name, :sex, :description, presence: true
   validates :color, inclusion: ['Black', 'Orange', 'Grey', 'Multicolor']
 
+  def age
+    Time.now.year - birth_date.year
+  end
+
 end
