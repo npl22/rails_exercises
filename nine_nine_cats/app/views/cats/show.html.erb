@@ -10,16 +10,24 @@
 </table>
 
 <br><br>
-
 <h2>Active Rentals:</h2>
-<ul>
   <% @cat.cat_rental_requests.order(:start_date).each do |req| %>
-    <li>
-      Start Date: <%= req.start_date %> ===>
-      End Date: <%= req.end_date %>
-    </li>
+
+    <ul style="list-style-type: none;">Request #<%= req.id %>
+      <li>Start Date: <%= req.start_date %></li>
+      <li>End Date: <%= req.end_date %></li>
+      <li>Status: <%= req.status %></li>
+
+      <% if req.pending? %>
+        <li><%= button_to "Approve", approve_cat_rental_request_url(req.id), method: :patch %>
+        </li>
+        <li>
+          <%= button_to "Deny", deny_cat_rental_request_url(req.id), method: :patch %>
+        </li>
+      <% end %>
+    </ul>
+
   <% end %>
-</ul>
 
 <br><br>
 
