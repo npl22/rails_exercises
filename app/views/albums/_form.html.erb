@@ -7,14 +7,38 @@
   <%= auth_token %>
 
   <label for="album_title">Album title: </label>
-  <input  type="text" title="album[title]"
+  <input  type="text" name="album[title]"
           placeholder="Album title"
           value = "<%= album.title %>" >
 
-  <label for="album_band"></label>
-  <select name="">
+  <br>
 
+  <label for="album_band_id">Recording Artist</label>
+  <select name="album[band_id]">
+    <% Band.all.each do |band| %>
+      <option value="<%= band.id %>"
+              <%= 'selected' if current_band.name == band.name %>><%= band.name %></option>
+    <% end %>
   </select>
+
+  <br>
+
+  <label>Studio
+    <input type="radio"
+      name="album[album_type]"
+      value = "studio"
+      <%= "checked" if album.album_type == "studio" %>>
+  </label>
+  <label>Live
+    <input type="radio"
+      name="album[album_type]"
+      value = "live"
+      <%= "checked" if album.album_type == "live" %>>
+  </label>
+
+  <br>
 
   <input type="submit">
 </form>
+
+<%= button_to "Cancel", album_url(album), method: :get %>

@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :ensure_logged_in, except: [:new, :create, :destroy]
   def new
     render :new
   end

@@ -1,2 +1,7 @@
-<h1>Tracks#new</h1>
-<p>Find me in app/views/tracks/new.html.erb</p>
+<h1> Add track to <%=@track.album %></h1>
+
+<%= render "form", track: @track, current_album: @album %>
+
+
+
+<%= button_to "Cancel", album_url(@album), method: :get%>

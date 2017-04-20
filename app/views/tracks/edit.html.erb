@@ -1,2 +1,7 @@
-<h1>Tracks#edit</h1>
-<p>Find me in app/views/tracks/edit.html.erb</p>
+<h1> Edit '<%=@track.title %>'</h1>
+
+<%= render "form", track: @track, current_album: @track.album%>
+
+
+
+<%= button_to "Cancel", track_url(@track), method: :get%>
