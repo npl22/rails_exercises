@@ -1,0 +1,20 @@
+<% action = (album.persisted? ? :edit : :new) %>
+
+<form action= "<%= action==:edit ? album_url(album) : albums_url %>" method="post">
+  <% if action == :edit %>
+    <input type="hidden" name="_method" value="PATCH">
+  <% end %>
+  <%= auth_token %>
+
+  <label for="album_title">Album title: </label>
+  <input  type="text" title="album[title]"
+          placeholder="Album title"
+          value = "<%= album.title %>" >
+
+  <label for="album_band"></label>
+  <select name="">
+
+  </select>
+
+  <input type="submit">
+</form>
