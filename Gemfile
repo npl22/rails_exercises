@@ -40,6 +40,7 @@ group :development, :test do
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem "letter_opener"
 end
 
 group :development do

@@ -20,4 +20,11 @@ class ApplicationController < ActionController::Base
       redirect_to new_session_url
     end
   end
+
+  def ensure_activated
+    unless current_user.activated
+      flash[:errors] = "Account not activated, check your e-mail!!"
+      redirect_to new_session_url
+    end
+  end
 end
