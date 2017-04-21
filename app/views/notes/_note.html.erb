@@ -1,0 +1,13 @@
+<ul>
+  <% @track.notes.reverse_each do |note| %>
+  <li>
+    <%= note.text %>
+    <br>
+    -written by <%= note.user.email %>
+    <% text = note.user == current_user ? "Delete Note" : "Delete Note (you can't lol)" %>
+      <%= button_to text, note_url(note), method: :delete  %>
+   </li>
+
+   <br>
+  <% end %>
+</ul>
