@@ -1,3 +1,5 @@
 <h1>Edit <%= @album.title %></h1>
 
 <%= render 'form', album: @album, current_band: @album.band %>
+
+<%= button_to "Cancel", album_url(@album), method: :get %>

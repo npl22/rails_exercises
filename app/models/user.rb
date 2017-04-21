@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   attr_reader :password
 
+  has_many :notes, dependent: :destroy
+
   def self.generate_session_token
     SecureRandom.urlsafe_base64(16)
   end
@@ -28,7 +30,7 @@ class User < ApplicationRecord
   end
 
   def password=(password)
-    @password = password 
+    @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
 

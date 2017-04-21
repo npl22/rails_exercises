@@ -7,10 +7,20 @@
 <ul>
   <li> Album: <%= @track.album.title %> </li>
   <li> Track Type:  <%= @track.track_type %> </li>
-  <li> Lyrics: <%= @track.lyrics  %> </li>
+  <li> Lyrics:
+    <% ugly_lyrics(@track.lyrics).each do |line|  %>
+      <br>
+        <%= line %>
+    <% end %>
+  </li>
 </ul>
 
+<br><br>
 
-<br> <br>
+<h3>Notes: </h3>
+<%= render "notes/form", track: @track %>
+<%= render "notes/note", track: @track %>
+
+<br>
 
 <%= link_to "Back to #{@track.album.title}", album_url(@track.album) %>

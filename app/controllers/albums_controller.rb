@@ -15,7 +15,7 @@ class AlbumsController < ApplicationController
       redirect_to album_url(@album)
     else
       flash[:errors] = @album.errors.full_messages
-      redirect_to new_band_album_url
+      redirect_to new_band_album_url(@album.band)
     end
   end
 
@@ -26,7 +26,6 @@ class AlbumsController < ApplicationController
 
   def update
     @album = Album.find(params[:id])
-
     if @album.update_attributes(album_params)
       redirect_to album_url(@album)
     else
