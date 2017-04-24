@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     )
     if @user
       login!(@user)
-      # TODO: redirect_to
+      redirect_to subs_url
     else
       # needs to be an array so that you can call each on this
       flash[:errors] = ['Invalid login credentials']
@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
 
   def destroy
     logout!
-    # TODO: redirect_to
+    redirect_to subs_url
   end
 
   private

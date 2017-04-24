@@ -27,4 +27,13 @@ class ApplicationController < ActionController::Base
       flash[:errors] = ['Please log in first']
     end
   end
+
+  def require_moderator
+    sub = Sub.find(params[:id])
+    unless current_user == sub.moderator
+      redirect_to sub_url(sub)
+      flash[:errors] =
+        ['You must be logged in as the moderator to edit that sub']
+    end
+  end
 end

@@ -5,6 +5,9 @@ class User < ApplicationRecord
   validates :password_digest, presence: { message: 'Password can\'t be blank' }
   after_initialize :ensure_session_token
 
+  has_many :subs, foreign_key: :moderator_id, class_name: 'Sub',
+    dependent: :destroy
+
   def self.find_by_credentials(username, pw)
     user = User.find_by(username: username)
     return user if user && user.is_password?(pw)
