@@ -1,4 +1,12 @@
 <h1> <%= @sub.title %> </h1>
 
-  <%= button_to "Edit this sub", edit_sub_url(@sub), method: :get %>
-  <%= button_to "Delete this sub", sub_url(@sub), method: :delete %>
+<%= button_to "Edit this sub", edit_sub_url(@sub), method: :get %>
+<%= button_to "Delete this sub", sub_url(@sub), method: :delete %>
+
+<ul>
+  <% @sub.posts.each do |post| %>
+    <li> <%= link_to post.title, post_url(post) %> </li>
+  <% end %>
+</ul>
+
+  <%= link_to "New Post", new_post_url %>

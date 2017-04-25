@@ -1,3 +1,4 @@
 <h1>Edit This Sub: <%= @sub.title %> </h1>
 
 <%= render 'form', sub: @sub %>
+<%= button_to 'Cancel', sub_url(@sub) %>

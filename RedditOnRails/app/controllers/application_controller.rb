@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   private
 
   def require_signed_in
-    unless current_user
+    unless signed_in?
       redirect_to new_session_url
       flash[:errors] = ['Please log in first']
     end
@@ -35,5 +35,9 @@ class ApplicationController < ActionController::Base
       flash[:errors] =
         ['You must be logged in as the moderator to edit that sub']
     end
+  end
+
+  def require_post_author
+    
   end
 end

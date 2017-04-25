@@ -6,15 +6,16 @@
   <input type="hidden" name="_method" value="<%= http_method %>">
 
   <label>Title:
-    <input type="text" name="sub[title]" value="<%= sub.title %>">
+    <input type="text" name="sub[title]" placeholder="Title"
+      value="<%= sub.title %>">
   </label>
 
   <br><br>
 
   <label>Description:
     <br>
-    <textarea name="sub[description]" rows="8" cols="40"><%= sub.description %>
-    </textarea>
+    <textarea name="sub[description]" placeholder="Description"
+      rows="8" cols="40"><%= sub.description %></textarea>
   </label>
 
   <br><br>
